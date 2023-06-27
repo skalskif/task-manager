@@ -2,7 +2,10 @@
 Simple demo CRUD app for TO DO tasks with Angular UI, Spring Boot API and MySQL database.
 
 ## Requirements
-To run all the microservices you will need at least Docker v20.10.21 and Docker Compose v2.13.0.
+To run all the microservices you will need at least: 
+-  Docker v20.10.21,
+-  Docker Compose v2.13.0,
+-  JDK v17.0.1.
 
 ## Run the app
 ```
