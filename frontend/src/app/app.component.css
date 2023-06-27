@@ -12,7 +12,7 @@
     width: 90%;
 }
 
-mat-form-field {
+.float-right {
     float: right;
 }
 
@@ -33,4 +33,9 @@ table {
 
 .no-data-cell {
     text-align: center;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,10 +1,11 @@
 <div class="container">
-  <mat-toolbar class="nav" color="primary">
+  <mat-toolbar color="primary">
     <span>Task Manager</span>
+    <span>Requests count: {{counter}}</span>
   </mat-toolbar>
   <div class="panel">
     <button mat-raised-button (click)="openDialog(false)" color="primary">New task</button>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="float-right">
       <mat-label>Search</mat-label>
       <input matInput search (keyup)="filter($event)" (focus)="setupFilter()">
     </mat-form-field>
@@ -36,7 +37,7 @@
         <td 
           class="mat-cell no-data-cell" 
           [attr.colspan]="displayedColumn.length" 
-          *ngIf="tasks.length && !data.length; else noTasksCell">
+          *ngIf="tasks && tasks.length && !data.length; else noTasksCell">
           The filter does not match any task.
         </td>
         <ng-template #noTasksCell>

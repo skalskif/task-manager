@@ -19,6 +19,7 @@ export class AppComponent {
   pageSizeOptions: number[] = [5, 10, 15];
   dataSource!: MatTableDataSource<Task>;
   tasks!: Task[];
+  counter!: number;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -53,16 +54,17 @@ export class AppComponent {
 
   public getTasks(): void {
     this.taskService.getTasks().subscribe(
-      (response: Task[]) => {
+      (response: any) => {
         if(!this.dataSource) {
-          this.dataSource = new MatTableDataSource(response);
+          this.dataSource = new MatTableDataSource(response.data);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
         }
         else {
-          this.dataSource.data = response;
+          this.dataSource.data = response.data;
         }
-        this.tasks = response;
+        this.tasks = response.data;
+        this.counter = response.count;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -72,7 +74,7 @@ export class AppComponent {
 
   addTask(task: Task): void {
     this.taskService.addTask(task).subscribe(
-      (response: Task) => {
+      (response: any) => {
         this.getTasks();
       },
       (error: HttpErrorResponse) => {
@@ -83,7 +85,7 @@ export class AppComponent {
 
   updateTask(task: Task): void {
     this.taskService.updateTask(task).subscribe(
-      (response: Task) => {
+      (response: any) => {
         this.getTasks();
       },
       (error: HttpErrorResponse) => {
