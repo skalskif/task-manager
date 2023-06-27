@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+}
+
+.panel {
+    padding: 20px;
+    width: 90%;
+}
+
+mat-form-field {
+    float: right;
+}
+
+table {
+    margin: auto;
+    width: 100%;
+}
+
+.desc-column {
+    width: 800px;
+    word-break: break-word;
+}
+
+.table {
+    width: 90%;
+    margin: auto;
+}
+
+.no-data-cell {
+    text-align: center;
+}
