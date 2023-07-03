@@ -11,7 +11,7 @@ To run all the microservices you will need at least:
 ```
 docker compose up -d mysqldb
 cd backend
-./mnvw install
+./mvnw install
 cd ..
 docker compose up -d
 ```
